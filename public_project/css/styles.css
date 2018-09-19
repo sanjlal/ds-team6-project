@@ -2,6 +2,10 @@
   text-transform: capitalize;
 }
 
+.grid-container {
+  display: grid;
+}
+
 #email{
   text-transform: lowercase;
 }
@@ -36,7 +40,12 @@
 .padding_top_25{
   padding-top: 25px;
 }
-
+#taskTable > tbody > tr {
+  border-left: 12px solid #eee;
+}
+#taskTable > tbody > tr.current-sprint {
+  border-left: 12px solid rgb(35, 95, 163);
+}
 .attrib_size{
   font-size: 10px;
 }
