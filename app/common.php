@@ -10,3 +10,5 @@ require 'environment.php';
 require 'models/Client.php';
 require 'models/Sensor.php';
 require 'models/SensorDeployed.php';
+require 'models/SensorTimeSeries.php';
+require 'models/Site.php';
