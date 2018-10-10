@@ -11,7 +11,7 @@ class Turbine{
   public function __construct($data){
     $this->turbineId = isset($data['turbineId']) ? intval($data['turbineId']):null;
     $this->turbineName=$data['turbineName'];
-    $this->turbineDescriptionn=$data['turbineDescription'];
+    $this->turbineDescription=$data['turbineDescription'];
     $this->capacity=$data['capacity'];
     $this->rampUpTime=$data['rampUpTime'];
     $this->maintenanceInterval=$data['maintenanceInterval'];

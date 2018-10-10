@@ -92,3 +92,12 @@ create table sensorTimeSeries(
     FOREIGN KEY (sensorDeployedId)
 			references sensorDeployed(sensorDeployedId)
     );
+
+		create table serviceComments(
+		commentId INT auto_increment not null,
+	  clientId INT not null,
+	  comments VARCHAR(500) not null,
+	  primary key(commentId),
+	  FOREIGN KEY (clientId)
+			references client(clientId)
+	);

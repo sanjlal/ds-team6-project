@@ -14,3 +14,4 @@ require 'models/SensorTimeSeries.php';
 require 'models/Site.php';
 require 'models/Turbine.php';
 require 'models/TurbineDeployed.php';
+require 'models/ServiceComments.php';

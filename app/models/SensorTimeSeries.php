@@ -27,7 +27,7 @@ class SensorTimeSeries{
   }
   public static function fetchAll(){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from sensorDeployed';
+    $sql= 'SELECT * from SensorTimeSeries';
     $statement=$db->prepare($sql);
     $success=$statement->execute();
     $arr=[];
