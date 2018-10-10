@@ -1,6 +1,6 @@
 <?php
 
-class SensorDeployed{
+class SensorTimeSeries{
   public $sensorDeployedId;
   public $dataCollectedDate;
   public $output;
