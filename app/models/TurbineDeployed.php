@@ -22,7 +22,7 @@ class TurbineDeployed{
   }
   public static function fetchAll(){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from TurbineDeployed';
+    $sql= 'SELECT * from turbineDeployed';
     $statement=$db->prepare($sql);
     $success=$statement->execute();
     $arr=[];
