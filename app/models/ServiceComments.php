@@ -32,6 +32,7 @@ class ServiceComments{
       $this->clientId,
       $this->comments
     ]);
+     $this->commentId = $db->lastInsertId();
   }
 
 
