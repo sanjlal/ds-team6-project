@@ -23,7 +23,7 @@ class Client{
     $success=$statement->execute();
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theClient =  new Comment($row);
+      $theClient =  new Client($row);
       array_push($arr, $theClient);
     }
     return $arr;
