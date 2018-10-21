@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // 1. Go to the database and get all work associated with the $taskId
-$commentArr = Site::fetchAll();
+$commentArr = Site::fetchAll($clientId);
 // 2. Convert to JSON
 $json = json_encode($commentArr, JSON_PRETTY_PRINT);
 // 3. Print

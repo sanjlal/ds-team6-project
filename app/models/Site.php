@@ -30,14 +30,15 @@ class Site{
     $this->addrZip=$data['addrZip'];
     $this->addrCountry=$data['addrCountry'];
   }
-  public static function fetchAll(){
+  //public static function fetchAll(){
+    public static function fetchAll(int $clientId){
     //(int $clientId)
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    //$sql= 'SELECT * from site where clientId=?';
-    $sql= 'SELECT * from site';
+    $sql= 'SELECT * from site where clientId=?';
+  //  $sql= 'SELECT * from site';
     $statement=$db->prepare($sql);
-  //  $success=$statement->execute([$clientId]);
-    $success=$statement->execute();
+    $success=$statement->execute([$clientId]);
+  //  $success=$statement->execute();
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theSite =  new Site($row);

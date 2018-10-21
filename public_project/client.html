@@ -47,7 +47,7 @@
 
   <div class="row" id="clientCard" v-if="clientClasses">
 
-    <a href="site.html" class="custom-card" v-for="clientClass in clientClasses">
+    <a href="#" class="custom-card" v-for="clientClass in clientClasses" :key="clientId" @click="gotoSite(clientClass.clientId)">
         <div class="card margin_right25" style="width: 28rem; ">
           <div class=" image-container">
             <img title="Image 2" src="./img/tide.png" class="client_logo_size image-responsive"/>
