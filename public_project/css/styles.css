@@ -9,6 +9,7 @@
 #email{
   text-transform: lowercase;
 }
+
 .logo_size{
   width:40px;
   height: 40px;
@@ -28,9 +29,20 @@
    z-index: 0;
    height: 30%;
 }
+
 .client_logo_size{
   width: 150px;
   height: 150px;
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+  text-decoration:none;
+}
+
+.image-container{
+  text-align: center;
 }
 
 .client_logo_size_small{
@@ -40,6 +52,86 @@
 .padding_top_25{
   padding-top: 25px;
 }
+
+.site_logo{
+  width: 448px;
+    height: 200px;
+}
+.round-tag {
+      -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    color: #ffffff;
+    font-size: 11px;
+    background: #a3a5a6;
+    text-decoration: none;
+    text-size-adjust: auto;
+    padding-top: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    height: 20px;
+
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tt{
+  position: relative;
+  display: inline-block;
+}
+
+.tt .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tt .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tt:hover .tooltiptext {
+    visibility: visible;
+}
+
+.icon{
+  height:20px;
+  width:20px
+}
+
+.padding_right_25{
+  padding-right: 25px;
+}
+
+.no_padding_left{
+  padding-left:0px
+}
+.margin_right25{
+  margin-right: 25px;
+}
+
+.margin_right_6{
+  margin-right: 6px;
+}
+
 #taskTable > tbody > tr {
   border-left: 12px solid #eee;
 }
@@ -59,6 +151,7 @@
 .font_size_50{
   font-size: 50px;
     color:#f5c6c6;
+
 }
 
 .font_style_bold{
@@ -82,8 +175,12 @@
   color:#174220;
 }
 
+.hover-tooltip{
+
+}
+
 h2{
-  color:#f5c6c6;
+  color: #d28585;
 }
 
 a{
@@ -99,6 +196,7 @@ a{
    bottom: 0;
    width: 100%;
 }
+
 
 /**tablesort**/
 th[role=columnheader]:not(.no-sort) {
