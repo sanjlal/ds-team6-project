@@ -2,9 +2,12 @@
 <html>
   <head>
     <title>Group Project | D&S</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/styles.css">
       <img class= "banner_width" src="./img/pic_only.png" align="center" />
+
   </head>
   <body>
 
@@ -23,51 +26,54 @@
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="client_sites.html">Projects</a>
+          <a class="nav-link" href="site.html">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="fav_movies.html">Sensors</a>
+          <a class="nav-link" href="dashboard.html">Sensors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="fav_movies.html">Help</a>
+          <a class="nav-link" href="dashboard.html">Help</a>
         </li>
       </ul>
     </div>
   </nav>
-<div class="container">
+
+<div id="vueBinderClient" class="container">
 
 <h2 class="row padding_top_25">
    Ongoing Projects
 </h2>
 
 
-  <div class="row padding_top_100">
-    <figure>
-      <a href="client_sites.html">
-        <img title="Image 1" src="./img/pacific_tidal_energy.jpg" class=" client_logo_size circular_img image-responsive img-thumbnail"/>
+  <div class="row" id="clientCard" v-if="clientClasses">
+
+    <a href="#" class="custom-card" v-for="clientClass in clientClasses" :key="clientClass.clientId" @click="gotoSite(clientClass.clientId)">
+        <div class="card margin_right25" style="width: 28rem; ">
+          <div class=" image-container">
+            <img title="Image 2" src="./img/tide.png" class="client_logo_size image-responsive"/>
+          </div>
+
+            <div class="card-body">
+
+              <h5 class="card-title font_style_bold">{{clientClass.clientName}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{clientClass.headquarters}}</h6>
+
+              <p class="card-text">
+              {{clientClass.clientDescription}}
+              </p>
+
+              <div style="float:right">
+                <span class="round-tag ">{{clientClass.gicsSector}}</span>
+                <span class="round-tag">{{clientClass.gicsSubIndustry}}</span>
+              </div>
+            </div>
+        </div>
       </a>
-      <figcaption>
-        Pacific Tidal Energy
-      </figcaption>
-      </figure>
-
-      <figure class="padding_left_100">
-        <a href="client_sites.html">
-          <img title="Image 2" src="./img/hoosier_energy.png" class="client_logo_size  circular_img image-responsive img-thumbnail"/>
-        </a>
-        <figcaption>
-        Hoosier Energy
-        </figcaption>
-      </figure>
-</div>
-
-<div id="footer">
-
-<div class="row ">
 
 </div>
 </div>
-</div> <!-- container div ends !-->
 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/client.app.js"></script>
   </body>
 </html>
