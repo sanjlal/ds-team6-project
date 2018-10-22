@@ -23,8 +23,9 @@ var app = new Vue({
         console.log(err);
       })
     },
-    gotoSite(cid) {
-      window.location = 'site.html?clientId=' + cid;
+    //?param1="+lat+"&param2="+lon);
+    gotoSite(cid,cname) {
+      window.location = 'site.html?clientId=' + cid+"&clientName="+cname;
     }
   },
   created() {

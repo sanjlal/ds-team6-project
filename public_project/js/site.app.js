@@ -32,24 +32,8 @@ var app = new Vue({
         console.log(err);
       })
     },
-    insertComment(){
-        fetch('http://ec2-34-238-138-223.compute-1.amazonaws.com/api/comment.php', {
-          method : "POST",
-          body : JSON.stringify(
-            {comment:document.getElementById('comment').value}),
-          headers : {
-            'Content-type': 'application/json; charset=utf-8'
-          }
-        })
-
-        .then(function(resp) {
-          console.log(resp.json())
-        })
-        .catch( function (err){
-          console.log('TASK FETCH ERROR');
-          console.log(err);
-        });
-
+    gotoTurbine(sid) {
+      window.location = 'turbine.html?siteId=' + sid;
     }
   },
   created() {
@@ -57,10 +41,11 @@ var app = new Vue({
     // Do data fetch
     const url = new URL(window.location.href);
     const clientId = url.searchParams.get('clientId');
+    const clientName=url.searchParams.get('clientName');
     console.log('ClientId at Create: '+ clientId);
-    //this.task.id = taskId;
-
     this.fetchComments(clientId);
+        this.siteClasses.addrLine2 = clientName;
+    console.log('ClientName at CReate:'+this.siteClasses.addrLine2);
   //  this.insertComment();
   }
 })

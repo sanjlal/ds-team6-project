@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Group Project | Team 6 | Site</title>
+  <title>Group Project | Team 6 | Turbine</title>
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styles.css">
   <img class="banner_width" src="./img/pic_only.png" align="center" />
@@ -38,10 +38,10 @@
 <div id="vueBinderSite" class="container">
 
   <h2 class="row padding_top_25">
-     Client Name
+     Site Name
   </h2>
-    <div class="row" id="siteCard" v-if="siteClasses">
-      <a href="dashboard.html" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId)" style="margin-left:50px">
+    <div class="row" id="siteCard" v-if="turbineClasses">
+      <a href="#" class="custom-card padding_top_25" v-for="turbineClass in turbineClasses" style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
