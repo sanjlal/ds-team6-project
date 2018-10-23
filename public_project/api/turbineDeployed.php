@@ -11,7 +11,7 @@ if ($siteId < 1) {
 }
 
 // 1. Go to the database and get all work associated with the $taskId
-$commentArr = TurbineDeployed::fetchAll($clientId);
+$commentArr = TurbineDeployed::fetchAll($siteId);
 // 2. Convert to JSON
 $json = json_encode($commentArr, JSON_PRETTY_PRINT);
 // 3. Print
