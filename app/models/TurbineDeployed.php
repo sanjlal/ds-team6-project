@@ -32,7 +32,7 @@ class TurbineDeployed{
     $this->rampUpTime=$data['rampUpTime'];
     $this->maintenanceInterval=$data['maintenanceInterval'];
   }
-  public static function fetchAll(){
+  public static function fetchAll(int $siteId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
     $sql= 'SELECT turbineDeployedId,
    td.turbineId,
@@ -49,9 +49,9 @@ class TurbineDeployed{
    maintenanceInterval
    from turbineDeployed td, turbine t
    where td.turbineId=t.turbineId
-   and siteId=1';
+   and siteId=?';
     $statement=$db->prepare($sql);
-    $success=$statement->execute();
+    $success=$statement->execute([$siteId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theTurbineDeployed =  new TurbineDeployed($row);
