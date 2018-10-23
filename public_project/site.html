@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Group Project | Team 6 | Site</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css">
+  <img class="banner_width" src="./img/pic_only.png" align="center" />
+</head>
+<body>
+
+  <!--  <img class="img-fluid" src="./img/welcome.png" alt="banner image" /> !-->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="./img/nav_logo.png" alt="IU Logo" class="logo_size"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="site.html">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Sensors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Help</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div id="vueBinderSite" class="container">
+
+  <h2 class="row padding_top_25">
+     Client Name
+  </h2>
+    <div class="row" id="siteCard" v-if="siteClasses">
+      <a href="dashboard.html" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId)" style="margin-left:50px">
+          <div class="card margin_right25 " style="width: 28rem; ">
+            <div class=" image-container">
+              <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title font_style_bold">{{siteClass.siteName}}</h5>
+                <p class="card-text">
+                {{siteClass.siteDescription}}
+                </p>
+
+                <div class="container no_padding_left">
+                    <img src="./img/contact_person.png" class="icon margin_right_6"/>
+                    <span class="tt"> {{siteClass.primaryContact}}
+                      <span class="tooltiptext">Person of Contact</span>
+                    </span>
+
+
+                <div class="row" style="float: right;" >
+                    <img src="./img/capacity_icon.png" class="icon margin_right_6"/>
+                    <span class="tt"> {{siteClass.capacity}}
+                      <span class="tooltiptext">Capacity</span>
+                    </span>
+                </div>
+              </div>
+
+
+              <div class="container no_padding_left" style="margin-top:20px">
+                  <img src="./img/address_icon.png" class="icon margin_right_6" style="margin-bottom:80px"/>
+                  <span class="tt">{{siteClass.addrLine1}}
+                    <br />
+                    {{siteClass.addrCity}}
+                    <br />
+                    {{siteClass.addrState}}   - {{siteClass.addrZip}}  , {{siteClass.addrCountry}}
+                    <br />
+                    <span class="tooltiptext">Address</span>
+                  </span>
+
+
+              <div class="row" style="float: right;" >
+                  <img src="./img/calendar_icon.png" class="icon margin_right_6"/>
+                  <span class="tt"> {{siteClass.commercialDate}}
+                    <span class="tooltiptext">Commercial Date</span>
+                  </span>
+              </div>
+            </div>
+
+
+              </div>
+          </div>
+        </a>
+
+      </div> <!-- row -->
+      <div class="row" v-else>
+      <h3 class="row padding_top_25" >
+         Sorry! This client currently does not have any sites. <br />Please click on Home to be redirected to the main page.
+      </h3>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/site.app.js"></script>
+</body>
+</html>
