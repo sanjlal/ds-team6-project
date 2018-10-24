@@ -4,7 +4,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   require 'clientPost.php';
   exit;
 }
+
 $turbineDeployedId = intval($_GET['turbineDeployedId'] ?? 0);
+echo $turbineDeployedId;
 if ($turbineDeployedId < 1) {
   throw new Exception('Invalid Task ID');
 }
