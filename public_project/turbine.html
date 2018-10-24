@@ -70,39 +70,31 @@
                     </span>
 
               <div class="row" style="float: right;" >
-                  <img src="./img/calendar_icon.png" class="icon margin_right_6"/>
-                  <span class="tt"> {{turbineClass.deployedDate}}
-                    <span class="tooltiptext">Deployed Date</span>
+
+                  <span class="tt"> Deployed Date:&nbsp;{{turbineClass.deployedDate}}
                   </span>
               </div>
             </div>
 
             <div class="container no_padding_left" style="margin-top:20px">
-                <img src="./img/address_icon.png" class="icon margin_right_6"/>
-                <span class="tt"> {{turbineClass.totalFiredHours}}
-                  <span class="tooltiptext">Total Fired Hours</span>
+
+                <span class="tt"> Total Fired Hours:&nbsp;{{turbineClass.totalFiredHours}}
                 </span>
 
             <div class="row" style="float: right;" >
-                <img src="./img/calendar_icon.png" class="icon margin_right_6"/>
-                <span class="tt"> {{turbineClass.totalStarts}}
-                  <span class="tooltiptext">Total Starts</span>
-                </span>
+
+                <span class="tt">Total Starts: {{turbineClass.totalStarts}}</span>
             </div>
           </div>
 
           <div class="container no_padding_left" style="margin-top:20px">
-              <img src="./img/address_icon.png" class="icon margin_right_6"/>
-              <span class="tt"> {{turbineClass.lastPlannedOutageDate}}
-                <span class="tooltiptext">Last PLanned Outtage Date</span>
+            <span class="tt">Last Planned Outtage:&nbsp; {{turbineClass.lastPlannedOutageDate}}
               </span>
+        </div>
 
-          <div class="row" style="float: right;" >
-              <img src="./img/calendar_icon.png" class="icon margin_right_6"/>
-              <span class="tt"> {{turbineClass.lastUnplannedOutageDate}}
-                <span class="tooltiptext">Last Unplanned Outtage Date</span>
-              </span>
-          </div>
+        <div class="container no_padding_left" style="margin-top:20px" >
+            <span class="tt">Last Unplanned Outtage: {{turbineClass.lastUnplannedOutageDate}}
+            </span>
         </div>
 
 
