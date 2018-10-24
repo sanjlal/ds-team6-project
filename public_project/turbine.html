@@ -35,75 +35,86 @@
     </div>
   </nav>
 
-<div id="vueBinderSite" class="container">
+<div id="vueBinderTurbine" class="container">
 
   <h2 class="row padding_top_25">
      Site Name
   </h2>
-    <div class="row" id="siteCard" v-if="turbineClasses">
-      <a href="#" class="custom-card padding_top_25" v-for="turbineClass in turbineClasses" style="margin-left:50px">
+    <div class="row" id="siteCard" v-if="turbineDeployedClasses">
+      <a href="#" class="custom-card padding_top_25" v-for="turbineClass in turbineDeployedClasses" style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
             </div>
 
               <div class="card-body">
-                <h5 class="card-title font_style_bold">{{siteClass.siteName}}</h5>
+                <h5 class="card-title font_style_bold">{{turbineClass.turbineName}}</h5>
                 <p class="card-text">
-                {{siteClass.siteDescription}}
+                {{turbineClass.turbineDescription}}
                 </p>
 
                 <div class="container no_padding_left">
-                    <img src="./img/contact_person.png" class="icon margin_right_6"/>
-                    <span class="tt"> {{siteClass.primaryContact}}
-                      <span class="tooltiptext">Person of Contact</span>
+                    <span class="tt">Ramp-Up Time:&nbsp; {{turbineClass.rampUpTime}} Hours
                     </span>
 
 
                 <div class="row" style="float: right;" >
-                    <img src="./img/capacity_icon.png" class="icon margin_right_6"/>
-                    <span class="tt"> {{siteClass.capacity}}
-                      <span class="tooltiptext">Capacity</span>
+                    <span class="tt">Capacity:&nbsp;  {{turbineClass.capacity}}MHz
                     </span>
                 </div>
               </div>
 
 
               <div class="container no_padding_left" style="margin-top:20px">
-                  <img src="./img/address_icon.png" class="icon margin_right_6" style="margin-bottom:80px"/>
-                  <span class="tt">{{siteClass.addrLine1}}
-                    <br />
-                    {{siteClass.addrCity}}
-                    <br />
-                    {{siteClass.addrState}}   - {{siteClass.addrZip}}  , {{siteClass.addrCountry}}
-                    <br />
-                    <span class="tooltiptext">Address</span>
-                  </span>
-
+                <span class="tt"> Maintenance Interval:&nbsp; {{turbineClass.maintenanceInterval}}
+                    </span>
 
               <div class="row" style="float: right;" >
-                  <img src="./img/calendar_icon.png" class="icon margin_right_6"/>
-                  <span class="tt"> {{siteClass.commercialDate}}
-                    <span class="tooltiptext">Commercial Date</span>
+
+                  <span class="tt"> Deployed Date:&nbsp;{{turbineClass.deployedDate}}
                   </span>
               </div>
             </div>
+
+            <div class="container no_padding_left" style="margin-top:20px">
+
+                <span class="tt"> Total Fired Hours:&nbsp;{{turbineClass.totalFiredHours}}
+                </span>
+
+            <div class="row" style="float: right;" >
+
+                <span class="tt">Total Starts: {{turbineClass.totalStarts}}</span>
+            </div>
+          </div>
+
+          <div class="container no_padding_left" style="margin-top:20px">
+            <span class="tt">Last Planned Outtage:&nbsp; {{turbineClass.lastPlannedOutageDate}}
+              </span>
+        </div>
+
+        <div class="container no_padding_left" style="margin-top:20px" >
+            <span class="tt">Last Unplanned Outtage: {{turbineClass.lastUnplannedOutageDate}}
+            </span>
+        </div>
 
 
               </div>
           </div>
         </a>
 
+        <div class="custom-card padding_top_25" style="margin-left:50px">
+          <div class="card margin_right25 " style="width: 28rem; ">
+            <div class="card-body">
+              <h5 class="card-title font_style_bold">Sensors Deployed Currently </h5>
+
+            </div>
+          </div>
+        </div>
       </div> <!-- row -->
-      <div class="row" v-else>
-      <h3 class="row padding_top_25" >
-         Sorry! This client currently does not have any sites. <br />Please click on Home to be redirected to the main page.
-      </h3>
-    </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/site.app.js"></script>
+<script src="js/turbineDeployed.app.js"></script>
 </body>
 </html>

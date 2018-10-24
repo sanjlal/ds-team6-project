@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#vueBinderSite',
+  el: '#vueBinderTurbine',
   data: {
     turbineDeployedClasses:
     [{
@@ -16,11 +16,18 @@ var app = new Vue({
        capacity: "",
        rampUpTime: "",
        maintenanceInterval: ""
+    }],
+    siteDeployedClasses:
+    [{   sensorDeployedId:"" ,
+        sensorId: "",
+        turbineDeployedId: "",
+        serialNumber: "",
+        deployedDate: ""
     }]
 },
 
   methods:{
-    fetchComments(clientId) {
+    fetchComments(siteId) {
       console.log('SiteId at fetchComments: '+ siteId);
     //  ?taskId='+taskId
       fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/turbineDeployed.php?siteId='+siteId)
@@ -31,6 +38,11 @@ var app = new Vue({
         console.log('TASK FETCH ERROR');
         console.log(err);
       })
+
+      const turbineDeployedId =this.turbineDeployedClasses.turbineDeployedId;
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?turbineDeployedId='+turbineDeployedId)
+
+
     },
     insertComment(){
         fetch('http://ec2-34-238-138-223.compute-1.amazonaws.com/api/comment.php', {
@@ -58,6 +70,6 @@ var app = new Vue({
     const url = new URL(window.location.href);
     const siteId = url.searchParams.get('siteId');
     this.fetchComments(siteId);
-  
+
   }
 })
