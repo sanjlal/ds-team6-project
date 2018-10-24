@@ -18,7 +18,7 @@ class SensorDeployed{
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
     $sql= 'SELECT * from sensorDeployed where turbineDeployedId=?';
     $statement=$db->prepare($sql);
-    $success=$statement->execute([turbineDeployedId]);
+    $success=$statement->execute([$turbineDeployedId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theSensorDeployed =  new SensorDeployed($row);
