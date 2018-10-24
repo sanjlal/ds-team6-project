@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#vueBinderSite',
+  el: '#vueBinderTurbine',
   data: {
     turbineDeployedClasses:
     [{
@@ -20,7 +20,7 @@ var app = new Vue({
 },
 
   methods:{
-    fetchComments(clientId) {
+    fetchComments(siteId) {
       console.log('SiteId at fetchComments: '+ siteId);
     //  ?taskId='+taskId
       fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/turbineDeployed.php?siteId='+siteId)
@@ -58,6 +58,6 @@ var app = new Vue({
     const url = new URL(window.location.href);
     const siteId = url.searchParams.get('siteId');
     this.fetchComments(siteId);
-  
+
   }
 })
