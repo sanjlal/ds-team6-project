@@ -14,9 +14,9 @@ class Sensor{
     $this->manufacturer=$data['manufacturer'];
     $this->totalLifeExpentancyHours=$data['totalLifeExpentancyHours'];
   }
-  public static function fetchAll(){
+  public static function fetchAll(int $siteId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from sensor';
+    $sql= 'SELECT * from sensor s ,sensorDeployed sd,turbineDeployed td where sd.turbineDeployedId= td.turbineDeployedId and s.sensorId=sd.sensorId and td.siteId=?';
     $statement=$db->prepare($sql);
     $success=$statement->execute();
     $arr=[];
@@ -37,6 +37,3 @@ class Sensor{
       $this->clientId
     ]);
   }*/
-
-
-}
