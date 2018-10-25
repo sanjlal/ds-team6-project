@@ -8,8 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $sensorId = intval($_GET['sensorId'] ?? 0);
 $turbineDeployedId=intval($_GET['turbineDeployedId'] ?? 0);
 //echo $turbineDeployedId;
-echo $sensorId;
-echo $turbineDeployedId;
 
 // 1. Go to the database and get all work associated with the $taskId
 $commentArr = SensorDeployed::fetchAll($sensorId,$turbineDeployedId);
