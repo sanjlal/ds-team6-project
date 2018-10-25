@@ -52,7 +52,11 @@ var app = new Vue({
       console.log('SiteId at fetchComments: '+ siteId);
     //  ?taskId='+taskId
     //+"&turbineDeployedId="+turbineDeployedId;
+
       fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?siteId='+siteId+'&turbineDeployedId='+turbineDeployedId)
+
+
+
 
       /*fetch('http://ec2-34-238-138-223.compute-1.amazonaws.com/api/comment.php', {
           method : "POST",
@@ -62,7 +66,8 @@ var app = new Vue({
             'Content-type': 'application/json; charset=utf-8'
           }
         })*/
-        
+
+
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
       .then(resp => {this.sensorDeployedClasses=resp; console.log(this.sensorDeployedClasses);})

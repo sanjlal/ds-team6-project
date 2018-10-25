@@ -38,9 +38,11 @@ var app = new Vue({
         console.log(err);
       })
     },
+
     gotoTurbine(sid,sname) {
       window.location = 'turbine.html?siteId=' + sid+"&siteName="+sname;;
     },
+
 
     insertComment(){
     fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/comment.php', {
@@ -61,6 +63,7 @@ var app = new Vue({
     });
 
 },
+
 fetchComments(clientId) {
   fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php?clientId='+clientId)
   .then((response) => response.json())
@@ -80,7 +83,9 @@ fetchComments(clientId) {
     const clientId = url.searchParams.get('clientId');
     const clientName=url.searchParams.get('clientName');
     console.log('ClientId at Create: '+ clientId);
+
     document.getElementById("clientName").innerHTML = clientName;
+
     this.fetchComments(clientId);
     this.fetchSite(clientId);
         this.siteClasses.addrLine2 = clientName;

@@ -37,6 +37,3 @@ class Sensor{
       $this->clientId
     ]);
   }*/
-
-
-}
