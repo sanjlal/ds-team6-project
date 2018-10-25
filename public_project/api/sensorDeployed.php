@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-$sensorId = intval($_GET['sensorId '] ?? 0);
-$turbineDeployedId=intval($_GET['turbineDeployedId '] ?? 0);
+$sensorId = intval($_GET['sensorId'] ?? 0);
+$turbineDeployedId=intval($_GET['turbineDeployedId'] ?? 0);
 //echo $turbineDeployedId;
 echo $sensorId;
 echo $turbineDeployedId;
