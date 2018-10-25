@@ -45,7 +45,7 @@ var app = new Vue({
 
 
     insertComment(){
-    console.log("Comment called");
+    console.log("Comment called"+document.getElementById('comment').value+document.getElementById('clientId').value);
     fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php', {
       method : "POST",
       body : JSON.stringify(
