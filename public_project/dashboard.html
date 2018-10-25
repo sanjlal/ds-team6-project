@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Assignment 1 | Sanjana Lal</title>
+  <title>Group Project | Team 6 | Turbine</title>
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styles.css">
   <img class="banner_width" src="./img/pic_only.png" align="center" />
@@ -34,41 +34,91 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
-  <h2 class="row padding_top_25">
-     Tidal Plant Health
-  </h2>
-<div class = "container padding_top_100">
 
-  <div class="row">
-        <table id="taskTable" class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>Sensor1</th>
-              <th>Sensor2</th>
-              <th>Sensor3</th>
-              <th>Sensor Time Series</th>
-              <th>Status</th>
-              <th>Last Time Checked</th>
-              <th>Fired Hrs</th>
-              <th>Trips</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Value</td>
-              <td>Value</td>
-              <td>Value</td>
-              <td>Graph</td>
-              <td>Red/Yellow/Green</td>
-              <td>Date</td>
-              <td>Time in hours</td>
-              <td>Value</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
+<div id="vueBinderSensor" class="container">
+
+  <h2 class="row padding_top_25">
+     Site Name
+  </h2>
+    <div class="row" id="siteCard" v-if="sensorDetailClasses">
+      <a href="#" class="custom-card padding_top_25" v-for="sensorDetailClass in sensorDetailClasses" style="margin-left:50px">
+          <div class="card margin_right25 " style="width: 28rem; ">
+            <div class=" image-container">
+              <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title font_style_bold">{{sensorDetailClass.sensorName}}</h5>
+                <p class="card-text">
+                {{sensorDetailClass.sensorDescription}}
+                </p>
+
+                <div class="container no_padding_left">
+                    <span class="tt">Manufacturer:&nbsp; {{sensorDetailClass.manufacturer}}
+                    </span>
+
+
+                <div class="container no_padding_left" >
+                    <span class="tt">Total Life Expectancy(Hours):&nbsp;  {{sensorDetailClass.totalLifeExpentancyHours}}
+                    </span>
+                </div>
+              </div>
+
+              <div v-for="sensorDeployedClass in sensorDeployedClasses">
+                <div class="container no_padding_left">
+                    <span class="tt">Serial Number:&nbsp; {{sensorDeployedClass.serialNumber}}
+                    </span>
+
+
+                <div class="container no_padding_left" >
+                    <span class="tt">Deployed Date:&nbsp;  {{sensorDeployedClass.deployedDate}}
+                    </span>
+                </div>
+              </div>
+
+              </div>
+              <!--<div class="container no_padding_left" style="margin-top:20px">
+                <span class="tt"> Maintenance Interval:&nbsp; {{sensorDeployedClass.maintenanceInterval}}
+                    </span>
+
+              <div class="row" style="float: right;" >
+
+                  <span class="tt"> Deployed Date:&nbsp;{{sensorDeployedClass.deployedDate}}
+                  </span>
+              </div>
+            </div>
+
+            <div class="container no_padding_left" style="margin-top:20px">
+
+                <span class="tt"> Total Fired Hours:&nbsp;{{sensorDeployedClass.totalFiredHours}}
+                </span>
+
+            <div class="row" style="float: right;" >
+
+                <span class="tt">Total Starts: {{turbineClass.totalStarts}}</span>
+            </div>
+          </div>
+
+          <div class="container no_padding_left" style="margin-top:20px">
+            <span class="tt">Last Planned Outtage:&nbsp; {{turbineClass.lastPlannedOutageDate}}
+              </span>
+        </div>
+
+        <div class="container no_padding_left" style="margin-top:20px" >
+            <span class="tt">Last Unplanned Outtage: {{turbineClass.lastUnplannedOutageDate}}
+            </span>
+        </div>-->
+
+
+              </div>
+          </div>
+        </a>
+
+      </div> <!-- row -->
+
 </div>
-  </body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/dashboard.app.js"></script>
+</body>
 </html>

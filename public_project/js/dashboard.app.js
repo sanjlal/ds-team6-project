@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#vueBinderTurbine',
+  el: '#vueBinderSensor',
   data: {
     turbineDeployedClasses:
     [{
@@ -48,10 +48,21 @@ var app = new Vue({
         console.log(err);
       })
     },
-    fetchSensorDeployed(siteId) {
+    fetchSensorDeployed(siteId,turbineDeployedId) {
       console.log('SiteId at fetchComments: '+ siteId);
     //  ?taskId='+taskId
-      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?siteId='+siteId)
+    //+"&turbineDeployedId="+turbineDeployedId;
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?siteId='+siteId+'&turbineDeployedId='+turbineDeployedId)
+
+      /*fetch('http://ec2-34-238-138-223.compute-1.amazonaws.com/api/comment.php', {
+          method : "POST",
+          body : JSON.stringify(
+            {comment:document.getElementById('comment').value}),
+          headers : {
+            'Content-type': 'application/json; charset=utf-8'
+          }
+        })*/
+        
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
       .then(resp => {this.sensorDeployedClasses=resp; console.log(this.sensorDeployedClasses);})
@@ -74,20 +85,18 @@ var app = new Vue({
         console.log(err);
       })
     },
-    gotoSensor(sensorId,turbineDeployedId) {
-      console.log("At gotoSensor"+sensorId+turbineDeployedId);
-      window.location = 'dashboard.html?sensorId=' +sensorId+"&turbineDeployedId="+turbineDeployedId;
+    gotoSensor(sensorId) {
+      window.location = 'dashboard.html?sensorId=' +sensorId;
     }
   },
   created() {
 
     // Do data fetch
     const url = new URL(window.location.href);
-    const siteId = url.searchParams.get('siteId');
-    const siteName=url.searchParams.get('siteName');
-    document.getElementById("siteName").innerHTML = siteName;
-    this.fetchComments(siteId);
-  //  this.fetchSensorDeployed(siteId);
-    this.fetchSensorDetails(siteId);
+    const sensorId = url.searchParams.get('sensorId');
+    const turbineDeployedId = url.searchParams.get('turbineDeployedId');
+    //this.fetchComments(siteId);
+    this.fetchSensorDeployed(sensorId,turbineDeployedId);
+    this.fetchSensorDetails(sensorId);
   }
 })

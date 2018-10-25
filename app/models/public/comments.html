@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 1 | Sanjana Lal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+<body>
+
+<!--  <img class="img-fluid" src="./img/welcome.png" alt="banner image" /> !-->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="./img/nav_logo.png" alt="IU Logo" class="logo_size"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="about_me.html">About Me</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="fav_movies.html">Favorite Movies</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="vueBinder" class = "container">
+    <div class="row">
+      <div class="mx-auto d-block font_size_50 padding_top_25">
+        My useless comments!
+      </div>
+    </div>
+    <div class="row  padding_top_25">
+      <table id="commentTable" class="table">
+        <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Comments</th>
+        </tr>
+        </thead>
+        <tbody id ="commentTableBody" v-if="commentClasses">
+          <tr v-for="commentClass in commentClasses">
+            <td>{{commentClass.id}}</td>
+            <td>{{commentClass.comment}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row font_size_50 padding_top_25">
+      Add your useless comment!
+    </div>
+
+    <div class="row padding_top_25">
+      <form id ="newCommentForm" @submit.prevent="insertComment">
+        <div class="form-group">
+          <label for="movie_name">Comment: </label>
+          <input type="text" class="form-control " id="comment" placeholder="Add comment here">
+        </div>
+        <div class="form-group">
+          <button id="submitNewComment" type="submit" class="btn btn-default" >Submit</button>
+        </div>
+      </form>
+    </div>
+</div>
+<script src="js/tablesort.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/comment.app.js"></script>
+<script>
+//Tablesort plugin from http://tristen.ca/tablesort/demo/s
+//  new Tablesort(document.getElementById('commentTable'));
+</script>
+</body>
+</html>

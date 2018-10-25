@@ -37,11 +37,30 @@
 
 <div id="vueBinderSite" class="container">
 
-  <h2 class="row padding_top_25">
+  <h2 id="clientName" class="row padding_top_25">
      Client Name
   </h2>
-    <div class="row" id="siteCard" v-if="siteClasses">
-      <a href="#" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId)" style="margin-left:50px">
+
+                <h4 class="row padding_top_25"> Service Comments:</h4>
+
+                <ul v-for="commentClass in commentClasses">
+                  <li>
+                    {{commentClass.comments}}
+                  </li>
+                </ul>
+
+        <form id ="newCommentForm" @submit.prevent="insertComment">
+        <div class="form-group">
+          <label for="Comment">Comment: </label>
+          <input type="text" class="form-control " id="comment" placeholder="Add comment here">
+        </div>
+        <div class="form-group">
+          <button id="submitNewComment" type="submit" class="btn btn-default" >Submit</button>
+        </div>
+      </form>
+
+    <div class="row" id="siteCard" v-if="siteClasses.length>0">
+      <a href="#" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId,siteClass.siteName)" style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>

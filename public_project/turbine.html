@@ -37,11 +37,12 @@
 
 <div id="vueBinderTurbine" class="container">
 
-  <h2 class="row padding_top_25">
+  <h2  id="siteName" class="row padding_top_25">
      Site Name
   </h2>
     <div class="row" id="siteCard" v-if="turbineDeployedClasses">
-      <a href="#" class="custom-card padding_top_25" v-for="turbineClass in turbineDeployedClasses" style="margin-left:50px">
+      <div v-for="turbineClass in turbineDeployedClasses">
+      <a href="#" class="custom-card padding_top_25"  style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
@@ -102,14 +103,18 @@
           </div>
         </a>
 
-        <div class="custom-card padding_top_25" style="margin-left:50px">
+        <div class="custom-card padding_top_25">
           <div class="card margin_right25 " style="width: 28rem; ">
-            <div class="card-body">
+            <div class="card-body" v-if="sensorDetailClasses">
               <h5 class="card-title font_style_bold">Sensors Deployed Currently </h5>
-
+              <ul v-for="sensorDetailClass in sensorDetailClasses" :key="sensorDetailClasses.sensorId" @click="gotoSensor(sensorDetailClass.sensorId,turbineClass.turbineDeployedId)">
+                <li><a href="#">{{sensorDetailClass.sensorName}}</a></li>
+              </ul>
             </div>
           </div>
         </div>
+      </div>
+
       </div> <!-- row -->
 
 </div>
