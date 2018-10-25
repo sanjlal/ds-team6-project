@@ -10,7 +10,7 @@ $turbineDeployedId=intval($_GET['turbineDeployedId '] ?? 0);
 //echo $turbineDeployedId;
 
 // 1. Go to the database and get all work associated with the $taskId
-$commentArr = SensorDeployed::fetchAll($siteId,$turbineDeployedId);
+$commentArr = SensorDeployed::fetchAll($sensorId,$turbineDeployedId);
 // 2. Convert to JSON
 $json = json_encode($commentArr, JSON_PRETTY_PRINT);
 // 3. Print
