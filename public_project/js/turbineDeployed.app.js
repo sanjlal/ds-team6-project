@@ -17,12 +17,20 @@ var app = new Vue({
        rampUpTime: "",
        maintenanceInterval: ""
     }],
-    siteDeployedClasses:
+    sensorDeployedClasses:
     [{   sensorDeployedId:"" ,
         sensorId: "",
         turbineDeployedId: "",
         serialNumber: "",
         deployedDate: ""
+    }],
+    sensorDetailClasses:
+    [{
+        sensorId: "",
+        sensorName: "",
+        sensorDescription: "" ,
+        manufacturer: "",
+        totalLifeExpentancyHours: ""
     }]
 },
 
@@ -34,34 +42,41 @@ var app = new Vue({
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
       .then(resp => {this.turbineDeployedClasses=resp; console.log(this.turbineDeployedClasses);})
+
       .catch( function (err){
         console.log('TASK FETCH ERROR');
         console.log(err);
       })
-
-      const turbineDeployedId =this.turbineDeployedClasses.turbineDeployedId;
-      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?turbineDeployedId='+turbineDeployedId)
-
-
     },
-    insertComment(){
-        fetch('http://ec2-34-238-138-223.compute-1.amazonaws.com/api/comment.php', {
-          method : "POST",
-          body : JSON.stringify(
-            {comment:document.getElementById('comment').value}),
-          headers : {
-            'Content-type': 'application/json; charset=utf-8'
-          }
-        })
+    fetchSensorDeployed(siteId) {
+      console.log('SiteId at fetchComments: '+ siteId);
+    //  ?taskId='+taskId
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?siteId='+siteId)
+      .then((response) => response.json())
+      // .then( function successCallBack2(){app.result = response.json()})
+      .then(resp => {this.sensorDeployedClasses=resp; console.log(this.sensorDeployedClasses);})
 
-        .then(function(resp) {
-          console.log(resp.json())
-        })
-        .catch( function (err){
-          console.log('TASK FETCH ERROR');
-          console.log(err);
-        });
+      .catch( function (err){
+        console.log('TASK FETCH ERROR');
+        console.log(err);
+      })
+    },
+    fetchSensorDetails(siteId) {
+      console.log('SiteId at fetchComments: '+ siteId);
+    //  ?taskId='+taskId
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensor.php?siteId='+siteId)
+      .then((response) => response.json())
+      // .then( function successCallBack2(){app.result = response.json()})
+      .then(resp => {this.sensorDetailClasses=resp; console.log(this.sensorDetailClasses);})
 
+      .catch( function (err){
+        console.log('TASK FETCH ERROR');
+        console.log(err);
+      })
+    },
+    gotoSensor(sensorId,turbineDeployedId) {
+      console.log("At gotoSensor"+sensorId+turbineDeployedId);
+      window.location = 'dashboard.html?sensorId=' +sensorId+"&turbineDeployedId="+turbineDeployedId;
     }
   },
   created() {
@@ -70,6 +85,7 @@ var app = new Vue({
     const url = new URL(window.location.href);
     const siteId = url.searchParams.get('siteId');
     this.fetchComments(siteId);
-
+  //  this.fetchSensorDeployed(siteId);
+    this.fetchSensorDetails(siteId);
   }
 })
