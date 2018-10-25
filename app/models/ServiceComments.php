@@ -10,11 +10,11 @@ class ServiceComments{
     $this->clientId=$data['clientId'];
     $this->comments=$data['comments'];
   }
-  public static function fetchAll(){
+  public static function fetchAll(int $clientId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from serviceComments';
+    $sql= 'SELECT * from serviceComments where clientId=?';
     $statement=$db->prepare($sql);
-    $success=$statement->execute();
+    $success=$statement->execute([$clientId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theserviceComments =  new ServiceComments($row);
