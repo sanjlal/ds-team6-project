@@ -14,11 +14,11 @@ class SensorDeployed{
     $this->serialNumber=$data['serialNumber'];
     $this->deployedDate=$data['deployedDate'];
   }
-  public static function fetchAll(int $siteId){
+  public static function fetchAll(int $sensorId, int $turbineDeployedId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from sensorDeployed sd,turbineDeployed td where sd.turbineDeployedId= td.turbineDeployedId and td.siteId=?';
+    $sql= 'SELECT * from sensorDeployed sd,turbineDeployed td, sensor s where sd.turbineDeployedId= td.turbineDeployedId and s.sensorId= sd.sensorId and td.turbineDeployedId=? and s.sensorId=?';
     $statement=$db->prepare($sql);
-    $success=$statement->execute([$siteId]);
+    $success=$statement->execute([$turbineDeployedId,$sensorId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theSensorDeployed =  new SensorDeployed($row);
