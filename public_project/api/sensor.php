@@ -9,7 +9,7 @@ if($siteId = intval($_GET['siteId'] ?? 0))
 {
   $sensorId = intval($_GET['sensorId'] ?? 0)
 
-  echo $sensorId;
+  //echo $sensorId;
 
 }
 
