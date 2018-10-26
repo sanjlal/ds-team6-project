@@ -26,6 +26,20 @@ class Sensor{
     }
     return $arr;
   }
+
+  public static function fetchAllDetails(int $sensorId){
+    $db= new PDO(DB_SERVER,DB_USER,DB_PW);
+    $sql= 'SELECT * from sensor where sensorId=?';
+    $statement=$db->prepare($sql);
+    $success=$statement->execute([$sensorId]);
+    $arr=[];
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $theSensor =  new Sensor($row);
+      array_push($arr, $theSensor);
+    }
+    return $arr;
+  }
+}
 }
 
   /*public function insertDescription($clientId) {

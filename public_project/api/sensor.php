@@ -8,12 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $siteId = intval($_GET['siteId'] ?? 0);
 //echo $turbineDeployedId;
 if ($siteId < 1) {
-  throw new Exception('Invalid Task ID');
+  $sensorId = intval($_GET['sensorId'] ?? 0);
+  $commentArr = Sensor::fetchAllDetails($sensorId);
+// 2. Convert to JSON
+  $json = json_encode($commentArr, JSON_PRETTY_PRINT);
+// 3. Print
+  header('Content-Type: application/json');
+  echo $json;
+
 }
 // 1. Go to the database and get all work associated with the $taskId
-$commentArr = Sensor::fetchAll($siteId);
+else{
+  $commentArr = Sensor::fetchAll($siteId);
 // 2. Convert to JSON
-$json = json_encode($commentArr, JSON_PRETTY_PRINT);
+  $json = json_encode($commentArr, JSON_PRETTY_PRINT);
 // 3. Print
-header('Content-Type: application/json');
-echo $json;
+  header('Content-Type: application/json');
+  echo $json;
+}
