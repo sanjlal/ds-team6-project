@@ -5,7 +5,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-$siteId = intval($_GET['siteId'] ?? 0);
+if($siteId = intval($_GET['siteId'] ?? 0))
+{
+  $sensorId = intval($_GET['sensorId'] ?? 0)
+
+  echo $sensorId;
+
+}
+
+else{
 //echo $turbineDeployedId;
 if ($siteId < 1) {
   throw new Exception('Invalid Task ID');
@@ -16,4 +24,6 @@ $commentArr = Sensor::fetchAll($siteId);
 $json = json_encode($commentArr, JSON_PRETTY_PRINT);
 // 3. Print
 header('Content-Type: application/json');
+}
+
 echo $json;

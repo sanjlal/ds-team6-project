@@ -49,6 +49,7 @@ var app = new Vue({
       })
     },
     fetchSensorDeployed(sensorId,turbineDeployedId) {
+        console.log('SensorId at fetchSensorDeployed: '+ sensorId);
       fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorDeployed.php?sensorId='+sensorId+'&turbineDeployedId='+turbineDeployedId)
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
@@ -59,10 +60,10 @@ var app = new Vue({
         console.log(err);
       })
     },
-    fetchSensorDetails(siteId) {
-      console.log('SiteId at fetchComments: '+ siteId);
+    fetchSensorDetails(sensorId) {
+      console.log('SensorId at fetchSensorDetails: '+ sensorId);
     //  ?taskId='+taskId
-      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensor.php?siteId='+siteId)
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensor.php?sensorId='+sensorId)
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
       .then(resp => {this.sensorDetailClasses=resp; console.log(this.sensorDetailClasses);})
