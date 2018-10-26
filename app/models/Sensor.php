@@ -40,7 +40,7 @@ class Sensor{
     return $arr;
   }
 }
-}
+
 
   /*public function insertDescription($clientId) {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
