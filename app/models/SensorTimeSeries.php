@@ -32,7 +32,7 @@ class SensorTimeSeries{
     $success=$statement->execute([$sensorId,$turbineDeployedId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theSensorDeployed =  new SensorDeployed($row);
+      $theSensorDeployed =  new SensorTimeSeries($row);
       array_push($arr, $theSensorDeployed);
     }
     return $arr;
