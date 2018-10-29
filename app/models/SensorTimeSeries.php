@@ -29,7 +29,7 @@ class SensorTimeSeries{
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
     $sql= 'SELECT * from sensorTimeSeries sts, sensorDeployed sd where sts.sensorDeployedId=sd.sensorDeployedId and sensorId=? and turbineDeployedId=?';
     $statement=$db->prepare($sql);
-    $success=$statement->execute();
+    $success=$statement->execute([$sensorId,$turbineDeployedId]);
     $arr=[];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $theSensorDeployed =  new SensorDeployed($row);
