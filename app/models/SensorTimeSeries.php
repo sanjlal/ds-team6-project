@@ -25,9 +25,9 @@ class SensorTimeSeries{
     $this->starts=$data['starts'];
 
   }
-  public static function fetchAll(){
+  public static function fetchAll(int $sensorId, int $turbineDeployedId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
-    $sql= 'SELECT * from SensorTimeSeries';
+    $sql= 'SELECT * from sensorTimeSeries sts, sensorDeployed sd where sts.sensorDeployedId=sd.sensorDeployedId and sensorId=? and turbineDeployedId=?';
     $statement=$db->prepare($sql);
     $success=$statement->execute();
     $arr=[];

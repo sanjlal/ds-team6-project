@@ -60,6 +60,18 @@ var app = new Vue({
         console.log(err);
       })
     },
+    fetchSensorTimeSeries(sensorId,turbineDeployedId) {
+        console.log('SensorId at fetchSensorDeployed: '+ sensorId);
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorTimeSeries.php?sensorId='+sensorId+'&turbineDeployedId='+turbineDeployedId)
+      .then((response) => response.json())
+      // .then( function successCallBack2(){app.result = response.json()})
+      .then(resp => {this.sensorDeployedClasses=resp; console.log(this.sensorDeployedClasses);})
+
+      .catch( function (err){
+        console.log('TASK FETCH ERROR');
+        console.log(err);
+      })
+    },
     fetchSensorDetails(sensorId) {
       console.log('SensorId at fetchSensorDetails: '+ sensorId);
     //  ?taskId='+taskId
@@ -86,5 +98,6 @@ var app = new Vue({
     //this.fetchComments(siteId);
     this.fetchSensorDeployed(sensorId,turbineDeployedId);
     this.fetchSensorDetails(sensorId);
+    this.fetchSensorTimeSeries(sensorId,turbineDeployedId);
   }
 })
