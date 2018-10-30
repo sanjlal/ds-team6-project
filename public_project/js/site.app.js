@@ -45,12 +45,14 @@ var app = new Vue({
 
 
     insertComment(){
-    console.log("Comment called"+document.getElementById('comment').value+document.getElementById('clientId').value);
+    console.log("Comment called"+document.getElementById('clientId').value);
     fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php', {
       method : "POST",
       body : JSON.stringify(
-        {comment:document.getElementById('comment').value,
-        clientId:2}),
+        {
+          comment:"helloSanjana",
+          clientId:2
+        }),
       headers : {
         'Content-type': 'application/json; charset=utf-8'
       }
@@ -87,7 +89,7 @@ fetchComments(clientId) {
     console.log('ClientId at Create: '+ clientId);
 
     document.getElementById("clientName").innerHTML = clientName;
-    document.getElementById("clientId").innerHTML = clientId;
+    // document.getElementById("clientId").innerHTML = clientId;
 
     this.fetchComments(clientId);
     this.fetchSite(clientId);

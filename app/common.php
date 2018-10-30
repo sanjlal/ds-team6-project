@@ -15,3 +15,4 @@ require 'models/Site.php';
 require 'models/Turbine.php';
 require 'models/TurbineDeployed.php';
 require 'models/ServiceComments.php';
+require 'models/ServiceCommentsPost.php';
