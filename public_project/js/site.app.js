@@ -50,7 +50,7 @@ var app = new Vue({
       method : "POST",
       body : JSON.stringify(
         {comment:document.getElementById('comment').value,
-        clientId:document.getElementById('clientId').value}),
+        clientId:2}),
       headers : {
         'Content-type': 'application/json; charset=utf-8'
       }

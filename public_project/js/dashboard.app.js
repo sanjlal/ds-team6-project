@@ -31,6 +31,19 @@ var app = new Vue({
         sensorDescription: "" ,
         manufacturer: "",
         totalLifeExpentancyHours: ""
+    }],
+    sensorTimeSeriesClasses:
+    [{
+        sensorDeployedId: "",
+        dataCollectedDate: "",
+        output: "",
+        heatRate: "",
+        compressorEfficiency: "",
+        availability: "",
+        reliability: "",
+        firedHours: "",
+        trips: "",
+        starts: ""
     }]
 },
 
@@ -65,7 +78,7 @@ var app = new Vue({
       fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/sensorTimeSeries.php?sensorId='+sensorId+'&turbineDeployedId='+turbineDeployedId)
       .then((response) => response.json())
       // .then( function successCallBack2(){app.result = response.json()})
-      .then(resp => {this.sensorDeployedClasses=resp; console.log(this.sensorDeployedClasses);})
+      .then(resp => {this.sensorTimeSeriesClasses=resp; console.log(this.sensorTimeSeriesClasses);})
 
       .catch( function (err){
         console.log('TASK FETCH ERROR');
