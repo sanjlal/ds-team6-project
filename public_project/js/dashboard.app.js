@@ -82,7 +82,12 @@ var app = new Vue({
          this.formatSensorDetails();
          this.buildAvailabilityChart();
          this.buildOutputChart();
-         this.buildHeatRateChart();})
+         this.buildHeatRateChart();
+         this.buildCompressorEfficiencyChart();
+         this.buildReliabilityChart();
+         this.buildFixedHourChart();
+         this.buildTripsChart();
+         this.buildStartsChart();})
 
       .catch( function (err){
         console.log('TASK FETCH ERROR');
@@ -273,11 +278,245 @@ var app = new Vue({
         color: 'rgba(223, 83, 83, .5)',
         data: this.sensorTimeSeriesClasses.map( item=>
           [item.output, item.heatRate]
+
         )
     }]
 });
 },
 
+buildCompressorEfficiencyChart(){
+
+      Highcharts.chart('compressorEfficiencyChart', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Compressor Efficiency'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Compressor Efficiency'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, '#6c5b7b'],
+                            [1, '#c06c84']
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+            series: [{
+                type: 'area',
+                name: 'Compressor Efficiency',
+                data: this.sensorTimeSeriesClasses.map( item=>
+                    [item.dataCollectedDate, item.compressorEfficiency]
+
+                )
+            }]
+        });
+    },
+    buildReliabilityChart() {
+      Highcharts.chart('reliabilityChart', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Reliability'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Reliability'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0,'#f8b195'],
+                            [1, '#f67280']
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+            series: [{
+                type: 'area',
+                name: 'Reliability',
+                data: this.sensorTimeSeriesClasses.map( item=>
+                    [item.dataCollectedDate, item.reliability]
+                )
+            }]
+        });
+    },
+    buildFixedHourChart() {
+      Highcharts.chart('fixedHoursChart', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Fixed Hour'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Fixed Hour'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, '#79bd8f'],
+                            [1, '#c3c2f2']
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+            series: [{
+                type: 'area',
+                name: 'Fixed Hour',
+                data: this.sensorTimeSeriesClasses.map( item=>
+                    [item.dataCollectedDate, item.fixedHours]
+                )
+            }]
+        });
+    },
+    buildTripsChart() {
+      Highcharts.chart('tripsChart', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Trips'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Trips'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+              column: {
+               pointPadding: 0.2,
+               borderWidth: 0
+           }
+            },
+            series: [{
+                type: 'area',
+                name: 'Trips',
+                data: this.sensorTimeSeriesClasses.map( item=>
+                    [item.dataCollectedDate, item.trips]
+                )
+            }]
+        });
+    },
+
+    buildStartsChart() {
+      Highcharts.chart('startsChart', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Starts'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Starts'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+              column: {
+               pointPadding: 0.2,
+               borderWidth: 0
+           }
+            },
+            series: [{
+                type: 'area',
+                name: 'Starts',
+                data: this.sensorTimeSeriesClasses.map( item=>
+                    [item.dataCollectedDate, item.starts]
+                )
+            }]
+        });
+    },
 
     fetchSensorDetails(sensorId) {
       console.log('SensorId at fetchSensorDetails: '+ sensorId);
@@ -305,5 +544,6 @@ var app = new Vue({
     this.fetchSensorDeployed(sensorId,turbineDeployedId);
     this.fetchSensorDetails(sensorId);
     this.fetchSensorTimeSeries(sensorId,turbineDeployedId);
+
   }
 })
