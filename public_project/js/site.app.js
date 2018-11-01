@@ -60,7 +60,7 @@ var app = new Vue({
       body : JSON.stringify(
         {
           comments:document.getElementById('comment').value,
-          clientId:2
+          clientId:document.getElementById('clientId').innerHTML
         }),
       headers : {
         'Content-type': 'application/json; charset=utf-8'
