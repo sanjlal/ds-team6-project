@@ -38,7 +38,7 @@
 <div id="vueBinderSensor" class="container">
 
     <div class="row" id="siteCard" v-if="sensorDetailClasses">
-      <a href="#" class="custom-card padding_top_25" v-for="sensorDetailClass in sensorDetailClasses" style="margin-left:50px">
+      <a href="#" class="custom-card padding_top_25" v-for="sensorDetailClass in sensorDetailClasses" style="margin-left:10px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
@@ -73,49 +73,25 @@
                 </div>
               </div>
 
-              </div>
-              <!--<div class="container no_padding_left" style="margin-top:20px">
-                <span class="tt"> Maintenance Interval:&nbsp; {{sensorDeployedClass.maintenanceInterval}}
-                    </span>
-
-              <div class="row" style="float: right;" >
-
-                  <span class="tt"> Deployed Date:&nbsp;{{sensorDeployedClass.deployedDate}}
-                  </span>
-              </div>
             </div>
-
-            <div class="container no_padding_left" style="margin-top:20px">
-
-                <span class="tt"> Total Fired Hours:&nbsp;{{sensorDeployedClass.totalFiredHours}}
-                </span>
-
-            <div class="row" style="float: right;" >
-
-                <span class="tt">Total Starts: {{turbineClass.totalStarts}}</span>
-            </div>
-          </div>
-
-          <div class="container no_padding_left" style="margin-top:20px">
-            <span class="tt">Last Planned Outtage:&nbsp; {{turbineClass.lastPlannedOutageDate}}
-              </span>
-        </div>
-
-        <div class="container no_padding_left" style="margin-top:20px" >
-            <span class="tt">Last Unplanned Outtage: {{turbineClass.lastUnplannedOutageDate}}
-            </span>
-        </div>-->
-
-
               </div>
           </div>
         </a>
-
+        <div class="custom-card padding_top_25" id="availabilityChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="outputChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="heatRateChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="compressorEfficiencyChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="reliabilityChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="fixedHoursChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="tripsChart" style="width:600px; height:225px; border:2px;"></div>
+        <div class="custom-card padding_top_25" id="startsChart" style="width:600px; height:225px; border:2px;"></div>
       </div> <!-- row -->
+
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="js/dashboard.app.js"></script>
 </body>
 </html>
