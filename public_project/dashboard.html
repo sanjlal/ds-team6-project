@@ -22,26 +22,21 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="site.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Sensors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Help</a>
-        </li>
       </ul>
     </div>
   </nav>
 
 <div id="vueBinderSensor" class="container">
 
+<<<<<<< HEAD
     <div class="row" id="siteCard" v-if="sensorDetailClasses">
+=======
+    <div class="row" id="siteCard" v-if="sensorDetailClasses" style="width:50%; margin:0 auto">
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
       <a href="#" class="custom-card padding_top_25" v-for="sensorDetailClass in sensorDetailClasses" style="margin-left:10px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
-              <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
+              <img title="Image 2" src="./img/Sensor.jpg" class="site_logo image-responsive"/>
             </div>
 
               <div class="card-body">
@@ -65,13 +60,12 @@
                 <div class="container no_padding_left">
                     <span class="tt">Serial Number:&nbsp; {{sensorDeployedClass.serialNumber}}
                     </span>
-
-
                 <div class="container no_padding_left" >
                     <span class="tt">Deployed Date:&nbsp;  {{sensorDeployedClass.deployedDate}}
                     </span>
                 </div>
               </div>
+<<<<<<< HEAD
 
             </div>
               </div>
@@ -89,6 +83,37 @@
 
 
 </div>
+=======
+            </div>
+
+              </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="row">
+        <div class="custom-card padding_top_25" id="availabilityChart" style="width:550px; height:225px; border:2px; padding-right:15px; display:inline-block"></div>
+        <div class="custom-card padding_top_25" id="outputChart" style="width:550px; height:225px; border:2px; display:inline-block"></div>
+      </div>
+
+        <div class="row">
+          <div class="custom-card padding_top_25" id="heatRateChart" style="width:550px; height:225px; border:2px; padding-right:15px; display:inline-block"></div>
+          <div class="custom-card padding_top_25" id="compressorEfficiencyChart" style="width:550px; height:225px; border:2px; display:inline-block"></div>
+        </div>
+
+        <div class="row">
+          <div class="custom-card padding_top_25" id="reliabilityChart" style="width:550px; height:225px; border:2px; padding-right:15px; display:inline-block"></div>
+          <div class="custom-card padding_top_25" id="fixedHoursChart"  style="width:550px; height:225px; border:2px; display:inline-block"></div>
+        </div>
+
+        <div class="row">
+          <div class="custom-card padding_top_25" id="tripsChart" style="width:550px; height:225px; border:2px; padding-right:15px; padding-bottom:10px; display:inline-block"></div>
+          <div class="custom-card padding_top_25" id="startsChart"  style="width:550px; height:225px; border:2px; padding-bottom:10px; display:inline-block"></div>
+        </div>
+
+      </div> <!-- container -->
+
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>

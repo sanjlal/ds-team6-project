@@ -15,7 +15,8 @@ var app = new Vue({
        turbineDescription: "",
        capacity: "",
        rampUpTime: "",
-       maintenanceInterval: ""
+       maintenanceInterval: "",
+       serialNumber:""
     }],
     sensorDeployedClasses:
     [{   sensorDeployedId:"" ,

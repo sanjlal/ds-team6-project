@@ -22,15 +22,7 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="site.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Sensors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Help</a>
-        </li>
+
       </ul>
     </div>
   </nav>
@@ -59,7 +51,7 @@
       <a href="#" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId,siteClass.siteName)" style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
-              <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
+              <img title="Image 2" v-bind:src="'./img/'+ siteClass.siteName +'.jpg'" class="site_logo image-responsive"/>
             </div>
 
               <div class="card-body">

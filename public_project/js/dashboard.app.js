@@ -114,7 +114,12 @@ var app = new Vue({
 
         Highcharts.chart('availabilityChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Availability %'
@@ -161,7 +166,11 @@ var app = new Vue({
                 type: 'area',
                 name: 'availability',
                 data:this.sensorTimeSeriesClasses.map( item=>
+<<<<<<< HEAD
                   [item.dataCollectedDate, item.output])
+=======
+                  [item.dataCollectedDate, item.availability])
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             }]
         });
     },
@@ -169,7 +178,12 @@ var app = new Vue({
     buildOutputChart() {
       Highcharts.chart('outputChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Output'
@@ -225,7 +239,12 @@ var app = new Vue({
   Highcharts.chart('heatRateChart', {
     chart: {
         type: 'scatter',
+<<<<<<< HEAD
         zoomType: 'xy'
+=======
+        zoomType: 'xy',
+        style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
     },
     title: {
         text: 'Heat Rate'
@@ -288,7 +307,12 @@ buildCompressorEfficiencyChart(){
 
       Highcharts.chart('compressorEfficiencyChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Compressor Efficiency'
@@ -343,7 +367,12 @@ buildCompressorEfficiencyChart(){
     buildReliabilityChart() {
       Highcharts.chart('reliabilityChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Reliability'
@@ -397,7 +426,12 @@ buildCompressorEfficiencyChart(){
     buildFixedHourChart() {
       Highcharts.chart('fixedHoursChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Fixed Hour'
@@ -451,7 +485,12 @@ buildCompressorEfficiencyChart(){
     buildTripsChart() {
       Highcharts.chart('tripsChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Trips'
@@ -486,7 +525,12 @@ buildCompressorEfficiencyChart(){
     buildStartsChart() {
       Highcharts.chart('startsChart', {
             chart: {
+<<<<<<< HEAD
                 zoomType: 'x'
+=======
+                zoomType: 'x',
+                style: {"box-shadow":"1px 2px 2px grey"}
+>>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Starts'

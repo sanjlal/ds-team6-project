@@ -15,7 +15,7 @@ class TurbineDeployed{
   public $capacity;
   public $rampUpTime;
   public $maintenanceInterval;
-
+  public $serialNumber;
   public function __construct($data){
     $this->turbineDeployedId = isset($data['turbineDeployedId']) ? intval($data['turbineDeployedId']):null;
     $this->turbineId=$data['turbineId'];
@@ -31,6 +31,7 @@ class TurbineDeployed{
     $this->capacity=$data['capacity'];
     $this->rampUpTime=$data['rampUpTime'];
     $this->maintenanceInterval=$data['maintenanceInterval'];
+    $this->serialNumber=$data['serialNumber'];
   }
   public static function fetchAll(int $siteId){
     $db= new PDO(DB_SERVER,DB_USER,DB_PW);
@@ -46,7 +47,8 @@ class TurbineDeployed{
    turbineDescription,
    capacity,
    rampUpTime,
-   maintenanceInterval
+   maintenanceInterval,
+   serialNumber
    from turbineDeployed td, turbine t
    where td.turbineId=t.turbineId
    and siteId=?';
