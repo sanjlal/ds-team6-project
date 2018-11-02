@@ -67,12 +67,12 @@ var app = new Vue({
       }
     })
     .then(function(resp) {
-<<<<<<< HEAD
+
       console.log(resp.json())
 
-=======
+
       document.location.reload(true)
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
+
     })
     //.then(window.location.reload())
     .catch( function (err){
