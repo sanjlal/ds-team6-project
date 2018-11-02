@@ -162,7 +162,7 @@ var app = new Vue({
                 type: 'area',
                 name: 'availability',
                 data:this.sensorTimeSeriesClasses.map( item=>
-                  [item.dataCollectedDate, item.output])
+                  [item.dataCollectedDate, item.availability])
             }]
         });
     },
