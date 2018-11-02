@@ -479,7 +479,11 @@ buildCompressorEfficiencyChart(){
                pointPadding: 0.2,
                borderWidth: 0
            },
+<<<<<<< HEAD
            
+=======
+
+>>>>>>> 594cfe02e2e3c6db3dd4a8358c1bdcf4a1bf8c20
 
             },
             series: [{
