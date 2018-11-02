@@ -278,7 +278,7 @@ var app = new Vue({
     },
     series: [{
         name: 'Heat Rate',
-        color: 'rgba(223, 83, 83, .5)',
+        color: 'rgba(230, 83, 83, .5)',
         data: this.sensorTimeSeriesClasses.map( item=>
           [item.output, item.heatRate]
 
@@ -374,8 +374,8 @@ buildCompressorEfficiencyChart(){
                             y2: 1
                         },
                         stops: [
-                            [0,'#f8b195'],
-                            [1, '#f67280']
+                            [0,'#f8c495'],
+                            [1, '#f67300']
                         ]
                     },
                     marker: {
@@ -429,8 +429,8 @@ buildCompressorEfficiencyChart(){
                             y2: 1
                         },
                         stops: [
-                            [0, '#79bd8f'],
-                            [1, '#c3c2f2']
+                            [0, '#78df8f'],
+                            [1, '#c4c2g3']
                         ]
                     },
                     marker: {
@@ -478,7 +478,9 @@ buildCompressorEfficiencyChart(){
               column: {
                pointPadding: 0.2,
                borderWidth: 0
-           }
+           },
+           
+
             },
             series: [{
                 type: 'area',
