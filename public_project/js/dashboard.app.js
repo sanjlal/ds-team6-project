@@ -114,12 +114,8 @@ var app = new Vue({
 
         Highcharts.chart('availabilityChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Availability %'
@@ -166,11 +162,7 @@ var app = new Vue({
                 type: 'area',
                 name: 'availability',
                 data:this.sensorTimeSeriesClasses.map( item=>
-<<<<<<< HEAD
-                  [item.dataCollectedDate, item.output])
-=======
                   [item.dataCollectedDate, item.availability])
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             }]
         });
     },
@@ -178,12 +170,8 @@ var app = new Vue({
     buildOutputChart() {
       Highcharts.chart('outputChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Output'
@@ -239,12 +227,8 @@ var app = new Vue({
   Highcharts.chart('heatRateChart', {
     chart: {
         type: 'scatter',
-<<<<<<< HEAD
-        zoomType: 'xy'
-=======
         zoomType: 'xy',
         style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
     },
     title: {
         text: 'Heat Rate'
@@ -294,7 +278,7 @@ var app = new Vue({
     },
     series: [{
         name: 'Heat Rate',
-        color: 'rgba(223, 83, 83, .5)',
+        color: 'rgba(230, 83, 83, .5)',
         data: this.sensorTimeSeriesClasses.map( item=>
           [item.output, item.heatRate]
 
@@ -307,12 +291,8 @@ buildCompressorEfficiencyChart(){
 
       Highcharts.chart('compressorEfficiencyChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Compressor Efficiency'
@@ -367,12 +347,8 @@ buildCompressorEfficiencyChart(){
     buildReliabilityChart() {
       Highcharts.chart('reliabilityChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Reliability'
@@ -398,8 +374,8 @@ buildCompressorEfficiencyChart(){
                             y2: 1
                         },
                         stops: [
-                            [0,'#f8b195'],
-                            [1, '#f67280']
+                            [0,'#f8c495'],
+                            [1, '#f67300']
                         ]
                     },
                     marker: {
@@ -426,12 +402,8 @@ buildCompressorEfficiencyChart(){
     buildFixedHourChart() {
       Highcharts.chart('fixedHoursChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Fixed Hour'
@@ -457,8 +429,8 @@ buildCompressorEfficiencyChart(){
                             y2: 1
                         },
                         stops: [
-                            [0, '#79bd8f'],
-                            [1, '#c3c2f2']
+                            [0, '#78df8f'],
+                            [1, '#c4c2g3']
                         ]
                     },
                     marker: {
@@ -485,12 +457,8 @@ buildCompressorEfficiencyChart(){
     buildTripsChart() {
       Highcharts.chart('tripsChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Trips'
@@ -510,7 +478,9 @@ buildCompressorEfficiencyChart(){
               column: {
                pointPadding: 0.2,
                borderWidth: 0
-           }
+           },
+
+
             },
             series: [{
                 type: 'area',
@@ -525,12 +495,8 @@ buildCompressorEfficiencyChart(){
     buildStartsChart() {
       Highcharts.chart('startsChart', {
             chart: {
-<<<<<<< HEAD
-                zoomType: 'x'
-=======
                 zoomType: 'x',
                 style: {"box-shadow":"1px 2px 2px grey"}
->>>>>>> 397a117318e9b6ac40a45f498e896bafba5a5436
             },
             title: {
                 text: 'Starts'
