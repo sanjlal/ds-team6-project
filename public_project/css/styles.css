@@ -196,6 +196,11 @@ a{
    bottom: 0;
    width: 100%;
 }
+#main-div {
+    width: 800px;
+    margin: 0 auto;
+}
+
 
 
 /**tablesort**/

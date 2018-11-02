@@ -22,12 +22,6 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="site.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Sensors</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Help</a>
         </li>
@@ -40,10 +34,12 @@
   <h2  id="siteName" class="row padding_top_25">
      Site Name
   </h2>
+
     <div class="row" id="siteCard" v-if="turbineDeployedClasses">
-      <div v-for="turbineClass in turbineDeployedClasses">
-      <a href="#" class="custom-card padding_top_25"  style="margin-left:50px">
-          <div class="card margin_right25 " style="width: 28rem; ">
+      <div v-for="turbineClass in turbineDeployedClasses" style="display:inherit">
+
+      <div href="#" class="custom-card padding_top_25"  style="margin-left:50px">
+          <div class="card margin_right25 " style="width: 28rem; margin-bottom:20px">
             <div class=" image-container">
               <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
             </div>
@@ -57,7 +53,6 @@
                 <div class="container no_padding_left">
                     <span class="tt">Ramp-Up Time:&nbsp; {{turbineClass.rampUpTime}} Hours
                     </span>
-
 
                 <div class="row" style="float: right;" >
                     <span class="tt">Capacity:&nbsp;  {{turbineClass.capacity}}MHz
@@ -91,31 +86,43 @@
           <div class="container no_padding_left" style="margin-top:20px">
             <span class="tt">Last Planned Outtage:&nbsp; {{turbineClass.lastPlannedOutageDate}}
               </span>
+              <div class="row" style="float: right;" >
+
+                  <span class="tt">Serial Number: {{turbineClass.serialNumber}}</span>
+              </div>
+
         </div>
 
         <div class="container no_padding_left" style="margin-top:20px" >
             <span class="tt">Last Unplanned Outtage: {{turbineClass.lastUnplannedOutageDate}}
             </span>
-        </div>
 
+        </div>
 
               </div>
           </div>
-        </a>
+        </div>
 
         <div class="custom-card padding_top_25">
-          <div class="card margin_right25 " style="width: 28rem; ">
-            <div class="card-body" v-if="sensorDetailClasses">
+          <div class="card margin_right25 " v-if="sensorDetailClasses.length>0" style="width: 28rem; display: inline-block  padding-left: 22px">
+            <div class="card-body">
               <h5 class="card-title font_style_bold">Sensors Deployed Currently </h5>
               <ul v-for="sensorDetailClass in sensorDetailClasses" :key="sensorDetailClasses.sensorId" @click="gotoSensor(sensorDetailClass.sensorId,turbineClass.turbineDeployedId)">
                 <li><a href="#">{{sensorDetailClass.sensorName}}</a></li>
               </ul>
             </div>
           </div>
+
+          <div class="row" style="display: inline-block; padding-left: 22px" v-else>
+            <h3 class="row padding_top_25" >
+               Sorry! No sensors are deployed here currently. <br />Please click on Home to be redirected to the main page.
+            </h3>
+        </div>
+
         </div>
       </div>
 
-      </div> <!-- row -->
+      </div>
 
 </div>
 

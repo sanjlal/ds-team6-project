@@ -22,12 +22,6 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="site.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Sensors</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Help</a>
         </li>
@@ -39,8 +33,6 @@
   <h2 id="clientName" class="row padding_top_25">
      Client Name
   </h2>
-
-  <!-- <p id="clientId" class="row padding_top_25">1</p> -->
     <h4 class="row padding_top_25"> Service Comments:</h4>
       <ul v-for="commentClass in commentClasses">
           <li>
@@ -48,7 +40,6 @@
           </li>
       </ul>
         <form id ="newCommentForm" @submit.prevent="insertComment">
-            <div id="clientId">1</div>
         <div class="form-group">
           <label for="Comment">Comment: </label>
           <input type="text" class="form-control " id="comment" placeholder="Add comment here">
@@ -62,7 +53,7 @@
       <a href="#" class="custom-card padding_top_25" v-for="siteClass in siteClasses" :key="siteClass.siteId" @click="gotoTurbine(siteClass.siteId,siteClass.siteName)" style="margin-left:50px">
           <div class="card margin_right25 " style="width: 28rem; ">
             <div class=" image-container">
-              <img title="Image 2" src="./img/emerald_waters.jpg" class="site_logo image-responsive"/>
+              <img title="Image 2" v-bind:src="'./img/'+ siteClass.siteName +'.jpg'" class="site_logo image-responsive"/>
             </div>
 
               <div class="card-body">
@@ -121,7 +112,9 @@
 
 </div>
 
+  <div id="clientId" class="row padding_top_25" style= "opacity:0">1</div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/site.app.js"></script>
+
 </body>
 </html>

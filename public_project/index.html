@@ -26,12 +26,6 @@
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="site.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Sensors</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Help</a>
         </li>
       </ul>
@@ -50,7 +44,7 @@
     <a href="#" class="custom-card" v-for="clientClass in clientClasses" :key="clientClass.clientId" @click="gotoSite(clientClass.clientId, clientClass.clientName)">
         <div class="card margin_right25" style="width: 28rem; ">
           <div class=" image-container">
-            <img title="Image 2" src="./img/tide.png" class="client_logo_size image-responsive"/>
+            <img title="Image 2" v-bind:src="'./img/'+ clientClass.clientName+'.png'" class="client_logo_size image-responsive"/>
           </div>
 
             <div class="card-body">

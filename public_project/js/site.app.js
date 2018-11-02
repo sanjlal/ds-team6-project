@@ -43,40 +43,37 @@ var app = new Vue({
       window.location = 'turbine.html?siteId=' + sid+"&siteName="+sname;;
     },
 
-
+    fetchComments(clientId) {
+      fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php?clientId='+clientId)
+      .then((response) => response.json())
+      // .then( function successCallBack2(){app.result = response.json()})
+      .then(resp => {this.commentClasses=resp; console.log(this.commentClasses);})
+      .catch( function (err){
+        console.log('TASK FETCH ERROR');
+        console.log(err);
+      })
+    },
     insertComment(){
-    console.log("Comment called"+document.getElementById('clientId').value);
-    fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php', {
+     console.log("Comment called"+document.getElementById('clientId').value);
+    fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceCommentsPost.php', {
       method : "POST",
       body : JSON.stringify(
         {
-          comment:"helloSanjana",
-          clientId:2
+          comments:document.getElementById('comment').value,
+          clientId:document.getElementById('clientId').innerHTML
         }),
       headers : {
         'Content-type': 'application/json; charset=utf-8'
       }
     })
-
     .then(function(resp) {
-      console.log(resp.json())
+      document.location.reload(true)
     })
     .catch( function (err){
       console.log('TASK FETCH ERROR');
       console.log(err);
     });
 
-},
-
-fetchComments(clientId) {
-  fetch('http://ec2-35-173-222-72.compute-1.amazonaws.com/api/serviceComments.php?clientId='+clientId)
-  .then((response) => response.json())
-  // .then( function successCallBack2(){app.result = response.json()})
-  .then(resp => {this.commentClasses=resp; console.log(this.commentClasses);})
-  .catch( function (err){
-    console.log('TASK FETCH ERROR');
-    console.log(err);
-  })
 }
 
   },
@@ -89,7 +86,7 @@ fetchComments(clientId) {
     console.log('ClientId at Create: '+ clientId);
 
     document.getElementById("clientName").innerHTML = clientName;
-    // document.getElementById("clientId").innerHTML = clientId;
+     document.getElementById("clientId").innerHTML = clientId;
 
     this.fetchComments(clientId);
     this.fetchSite(clientId);
